@@ -30,7 +30,7 @@ based in Bangalore,India.</h1>
 <p className={`${dark?'text-gray-300':'text-gray-500'} mt-5 mb-5 lg:text-2xl md:text-xl text-md xl:text-left text-center`}>I help businesses and companies reach 
 their goals by designing user-centric digital 
 products & interactive experiences.</p>
-<a href="mailto:sb78639@gmail.com" target="_blank" className={`py-6 px-3 bg-gray-400 ${!dark?'text-black':'text-white'} xl:w-h w-full flex items-center justify-center gap-3 mail_button rounded-lg hover:bg-gray-700 focus:ring-4 focus:ring-offset-black focus:ring-green-600 focus:ring-offset-4`}>
+<a href="mailto:sb78639@gmail.com" className={`py-6 px-3 bg-gray-400 ${!dark?'text-black':'text-white'} xl:w-h w-full flex items-center justify-center gap-3 mail_button rounded-lg hover:bg-gray-700 focus:ring-4 focus:ring-offset-black focus:ring-green-600 focus:ring-offset-4`}>
 
   <div className="btn_ball"></div>
   <span className='flex items-center gap-4 btn_content'><MdMailOutline/> sb78639@gmail.com</span>
