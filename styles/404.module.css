@@ -1,0 +1,14 @@
+.four_oh_four {
+  width: 100%;
+  height: 100vh;
+  background-color: #dbaeff;
+  overflow: hidden;
+}
+
+.four_oh_four_content {
+  width: 75%;
+  display: flex;
+  margin: 115px auto;
+  flex-direction: column;
+  align-items: center;
+}

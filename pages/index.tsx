@@ -7,9 +7,12 @@ import {MdMailOutline} from 'react-icons/md'
 import {motion} from 'framer-motion'
 import styles from '../styles/Home.module.css'
 import axios from '../node_modules/axios/index';
+import useOnline from '../hooks/useOnline';
 import {useEffect, useState} from 'react'
 function Home({dark}) {
   const [dev_works,setWorks] = useState(null);
+  const online = useOnline();
+  console.log(online)
 
  useEffect(()=>{
     axios.get('https://portfoliosrever.herokuapp.com/data').then((d)=>{
@@ -23,6 +26,14 @@ function Home({dark}) {
       console.log(e)
     })
   },[])
+
+
+  const getRandomColor = ()=>{
+  let r = Math.floor(Math.random() * 255);
+  let g = Math.floor(Math.random() * 255);
+  let b = Math.floor(Math.random() * 255);
+  return `rgba(${r},${g},${b},.5)`
+  }
   return (
     <div>
       <Head>
@@ -31,9 +42,9 @@ function Home({dark}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header/>
+      {online && <Header/>}
 
-      <div className={`app w-full ${dark && "dark"}  relative`}>
+      {online?<div className={`app w-full ${dark && "dark"}  relative`}>
         {dark && <div className="dark_theme_wave"></div>}
         {!dark && <div className="light_theme_wave"></div>}
       <div className="container">
@@ -62,7 +73,12 @@ products & interactive experiences.</p>
   whileHover={{ scale: 1.2 }}
   
   className={`hero__dev ${dark?'bg-indigo-400':'bg-green-300'}`}>
-            <img src="/img/memoji.png" alt="memoji" className="dev__image" />
+            {dark?<motion.div initial={{ scale: 0 }}
+  animate={{  scale: 1 }}
+  transition={{
+    type: "spring",
+    damping: 20
+  }}><img src="/img/memoji__seondary.png" alt="memoji" className="dev__image" /></motion.div>:<img src="/img/memoji.png" alt="memoji" className="dev__image" />}
             <div className="dev_emoji dev_emoji2">
               <img src="/img/party.gif" alt="smile_gif" />
             </div>
@@ -140,11 +156,19 @@ products & interactive experiences.</p>
           <div className="explore_works mt-12 grid xl:grid-cols-3 lg:grid-cols-2 grid-cols-1 gap-5 mb-12">
               {
                 dev_works && dev_works.map((work,i)=>{
-                  return <div className="work_item" key={i} 
+                  return <div className="work_item cursor-pointer" key={i} 
                   >
-                    <div className="work__overlay" style={{
-                    backgroundImage:`url(${work.image})`
+                    <div className="work__overlay py-12 px-6" style={{
+                    backgroundColor:getRandomColor()
                   }}>
+
+                    <h1 className='text-white text-2xl'>{work.name}</h1>
+                    <div className="about_work">
+                    <p className='mt-6 text-white'>{work.description}</p>
+                    <div className="_links flex items-center mt-2">
+                      <a href="#github-link" className='py-3 px-6 bg-black text-white flex items-center gap-2 rounded-3xl'>View on <FaGithub/></a>
+                    </div>
+                    </div>
 
                     </div>
                   <img src={work.thumb} alt="" />
@@ -155,7 +179,17 @@ products & interactive experiences.</p>
           </div>
         </div>
       </div>
-      </div>
+      </div>:<div className='bg-red-400 text-white offline_status flex items-center flex-column justify-center' style={{
+        width:'100%',
+        height:'100vh',
+        
+      }}>
+        <div className="offline_status__content text-center flex items-center flex-col justify-center">
+          <img src="/img/404_face.png" alt="error_face" />
+          
+          <p className="text-xl mt-32">You are offline. Please check your internet connection and try again.</p>
+        </div>
+        </div>}
     </div>
   )
 }

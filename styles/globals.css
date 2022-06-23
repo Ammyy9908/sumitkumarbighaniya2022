@@ -192,6 +192,7 @@ a {
   border-radius: 8px;
   position: relative;
 }
+
 .work_item .work__overlay {
   backdrop-filter: blur(30px);
   background-color: #262626d8;
@@ -214,8 +215,9 @@ a {
   left: 0;
   z-index: 1;
 }
+
 .work_item:hover img {
-  transform: scale(1.5);
+  transform: scale(1.2);
 }
 @media screen and (min-width: 968px) {
   .hero_content {
