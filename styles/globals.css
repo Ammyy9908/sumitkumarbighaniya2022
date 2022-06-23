@@ -160,6 +160,23 @@ a {
   z-index: 99;
 }
 
+.dev_emoji {
+  position: absolute;
+  z-index: 99;
+}
+.dev_emoji1 {
+  bottom: -10px;
+  right: -10px;
+}
+.dev_emoji2 {
+  top: 0;
+  left: 30px;
+  display: none;
+}
+.hero__dev {
+  position: relative;
+}
+
 .hero {
   margin-bottom: 115px;
 }
@@ -172,6 +189,10 @@ a {
     width: 300px;
     height: 300px;
   }
+  .dev_emoji1 {
+    bottom: 0;
+    right: 30px;
+  }
 }
 
 @media screen and (min-width: 1280px) {
@@ -180,5 +201,9 @@ a {
   }
   .featured_work_item {
     height: 888px;
+  }
+
+  .dev_emoji2 {
+    display: block;
   }
 }

@@ -48,6 +48,12 @@ products & interactive experiences.</p>
   
   className={`hero__dev ${dark?'bg-indigo-400':'bg-green-300'}`}>
             <img src="/img/memoji.png" alt="memoji" className="dev__image" />
+            <div className="dev_emoji dev_emoji2">
+              <img src="/img/party.gif" alt="smile_gif" />
+            </div>
+            <div className="dev_emoji dev_emoji1">
+              <img src="/img/smile.gif" alt="smile_gif" />
+            </div>
           </motion.div>
         </div>
        
