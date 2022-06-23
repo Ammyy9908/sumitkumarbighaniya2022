@@ -185,9 +185,9 @@ products & interactive experiences.</p>
         
       }}>
         <div className="offline_status__content text-center flex items-center flex-col justify-center">
-          <img src="/img/404_face.png" alt="error_face" />
-          
-          <p className="text-xl mt-32">You are offline. Please check your internet connection and try again.</p>
+         
+          <h1 className="lg:text-6xl text-3xl mt-6">Offline</h1>
+          <p className="text-xl">You are offline. Please check your internet connection and try again.</p>
         </div>
         </div>}
     </div>
