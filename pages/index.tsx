@@ -25,7 +25,7 @@ function Home({dark}) {
         <div className="hero w-full xl:flex-row flex flex-col-reverse items-center gap-12 justify-between">
           <div className="hero_content">
             <h1 className={`lg:text-7xl lg:font-medium font-bold md:text-4xl sm:3xl xl:text-left text-center text-2xl ${dark ?'text-white':'text-black'} leading-6 w-auto`}>Hi, I am Sumit Kumar
-A Web Developer
+A Web  🧑🏻‍💻 Developer
 based in Bangalore,India.</h1>
 <p className={`${dark?'text-gray-300':'text-gray-500'} mt-5 mb-5 lg:text-2xl md:text-xl text-md xl:text-left text-center`}>I help businesses and companies reach 
 their goals by designing user-centric digital 
