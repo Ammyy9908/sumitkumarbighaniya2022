@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body {
   padding: 0;
@@ -13,4 +17,168 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.header_wrapper {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.container {
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 115px;
+  z-index: 4;
+}
+
+.hero_content {
+  width: 100%;
+  z-index: 4;
+}
+
+.app {
+  overflow: hidden;
+}
+
+.dark_theme_wave {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: -50px;
+  left: 0;
+  transform: translateX(-50%);
+  background-color: #323232;
+  animation: scaleUp 1s 1;
+  border-radius: 50%;
+  z-index: 1;
+  transform: scale(300);
+}
+
+.light_theme_wave {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: -50px;
+  right: 0;
+  transform: translateX(-50%);
+  background-color: #dfdfdf;
+  animation: scaleUp 1s 1;
+  border-radius: 50%;
+  z-index: 1;
+  transform: scale(300);
+}
+.featured {
+  z-index: 99;
+  display: block;
+  position: relative;
+  text-transform: uppercase;
+}
+@keyframes scaleUp {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(300);
+  }
+}
+
+.hero__dev {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  z-index: 9;
+}
+
+.featured_work_item:hover .work_overlay {
+  opacity: 1;
+}
+.work_overlay {
+  z-index: 2;
+  opacity: 0;
+}
+.light {
+  background-color: #d6d6d689;
+}
+.dark {
+  background-color: #26262682;
+}
+.featured_work_item {
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.featured_work_item {
+  width: 100%;
+  height: 392px;
+}
+.featured_work_item img {
+  width: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  height: 100%;
+  transition: all 0.3s ease-in-out;
+}
+.featured_work_item:hover img {
+  transform: scale(1.3);
+}
+
+.mail_button {
+  position: relative;
+  overflow: hidden;
+  height: 65px;
+  transition: all 0.3s ease-in;
+}
+.mail_button:hover .btn_ball {
+  transform: translate(-50%, -50%) scale(50);
+  transition: all 0.3s ease-in;
+}
+.mail_button:hover {
+  transform: translateY(-5px);
+}
+.btn_ball {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  transform: translate(-50%, -50%) scale(0);
+  background-color: #06c186;
+  border-radius: 50%;
+}
+.btn_content {
+  position: absolute;
+  z-index: 99;
+}
+
+.hero {
+  margin-bottom: 115px;
+}
+@media screen and (min-width: 768px) {
+  .hero_content {
+    width: 824px;
+  }
+
+  .hero__dev {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .mail_button {
+    width: 400px;
+  }
+  .featured_work_item {
+    height: 888px;
+  }
 }
