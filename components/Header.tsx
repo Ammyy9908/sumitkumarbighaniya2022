@@ -17,8 +17,8 @@ function Header({dark,setTheme}) {
 
         <nav>
           <ul className={`flex items-center gap-5 ${!dark ? 'text-black-100':'text-white'} font-semibold text-lg`}>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
+            <li><a href="#about">Home</a></li>
+            <li><a href="#work">Work</a></li>
             <li><a href="#">Contact</a></li>
             <li><button className={`py-3 px-3 ${!dark?'bg-gray-500 text-white':'bg-white text-black'} rounded-3xl`} onClick={toggleDarkMode}>{!dark?<MdDarkMode/>:<MdLightMode/>}</button></li>
           </ul>

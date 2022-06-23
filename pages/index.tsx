@@ -6,8 +6,23 @@ import Header from '../components/Header'
 import {MdMailOutline} from 'react-icons/md'
 import {motion} from 'framer-motion'
 import styles from '../styles/Home.module.css'
-
+import axios from '../node_modules/axios/index';
+import {useEffect, useState} from 'react'
 function Home({dark}) {
+  const [dev_works,setWorks] = useState(null);
+
+ useEffect(()=>{
+    axios.get('https://portfoliosrever.herokuapp.com/data').then((d)=>{
+      console.log(d)
+      const {works}= d.data.data
+      console.log(works)
+      setWorks([
+        ...new Map(works.map((item) => [item["name"], item])).values(),
+      ])
+    }).catch((e)=>{
+      console.log(e)
+    })
+  },[])
   return (
     <div>
       <Head>
@@ -18,11 +33,11 @@ function Home({dark}) {
 
       <Header/>
 
-      <div className={`app w-full ${dark && "dark"} overflow-hidden relative`}>
+      <div className={`app w-full ${dark && "dark"}  relative`}>
         {dark && <div className="dark_theme_wave"></div>}
         {!dark && <div className="light_theme_wave"></div>}
       <div className="container">
-        <div className="hero w-full xl:flex-row flex flex-col-reverse items-center gap-12 justify-between">
+        <div className="hero w-full xl:flex-row flex flex-col-reverse items-center gap-12 justify-between" id="about">
           <div className="hero_content">
             <h1 className={`lg:text-7xl lg:font-medium font-bold md:text-4xl sm:3xl xl:text-left text-center text-2xl ${dark ?'text-white':'text-black'} leading-6 w-auto`}>Hi, I am Sumit Kumar
 A Web  🧑🏻‍💻 Developer
@@ -58,7 +73,7 @@ products & interactive experiences.</p>
         </div>
        
          
-          <p className={`featured ${dark?'text-white':'text-black'}`}>Featured Work</p>
+          <p className={`featured ${dark?'text-white':'text-black'}`} id="work">Featured Work</p>
        
 
 
@@ -116,6 +131,27 @@ products & interactive experiences.</p>
             </div>
             <img src="https://images.unsplash.com/photo-1632488507942-b638eecc151a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="project4" className="object-fit object-cover"/>
           </div>
+          </div>
+        </div>
+
+
+        <div className="explore_section">
+          <h1 className={`text-center text-3xl ${dark?'text-white':'text-black'}`}>Visual Explorations</h1>
+          <div className="explore_works mt-12 grid xl:grid-cols-3 lg:grid-cols-2 grid-cols-1 gap-5 mb-12">
+              {
+                dev_works && dev_works.map((work,i)=>{
+                  return <div className="work_item" key={i} 
+                  >
+                    <div className="work__overlay" style={{
+                    backgroundImage:`url(${work.image})`
+                  }}>
+
+                    </div>
+                  <img src={work.thumb} alt="" />
+                </div>
+                })
+              }
+              
           </div>
         </div>
       </div>
