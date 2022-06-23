@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from '../node_modules/next/link'
 import styles from "../styles/404.module.css"
 function FourOhFour() {
   return (
@@ -9,9 +10,11 @@ function FourOhFour() {
             <div className="four_oh_four_face mt-32">
                 <img src="/img/404_face.png" alt="404_face" />
             </div>
-            <a href="/" className="back_button mt-32">
+            <Link href="/">
+            
+            <a  className="back_button mt-32">
                 <span className="flex items-center gap-3"><img src="/img/back_arrow.png" alt="back-arrow" /> Go Home</span>
-            </a>
+            </a></Link>
         </div>
     </div>
   )
