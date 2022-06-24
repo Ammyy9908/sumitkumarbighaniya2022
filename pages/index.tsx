@@ -39,7 +39,11 @@ function Home({dark}) {
       <Head>
         <title>Sumit Kumar</title>
         <meta name="description" content="Frontend Web Develoepr based in Bangalore,India" />
+        <meta name="keywords" content="HTML, CSS, JavaScript,Sumit Website,Netflix Web Clones,Frontend Web developer Bangalore,Web Clones ReactJS Developer Bangalore,India,Instagram Clone ReactJS,NextJs"/>
+  <meta name="author" content="Sumit Kumar"/>
+
         <link rel="icon" href="/favicon.ico" />
+        
       </Head>
 
       {online && <Header/>}
